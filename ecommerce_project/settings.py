@@ -82,7 +82,7 @@ DATABASES = {
         # Replace this value with your local database's connection string.
         default=BASE_DIR,
         conn_max_age=600
-    }
+   )
 }
 
 
