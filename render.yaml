@@ -11,6 +11,7 @@ services:
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn Ecommerce_project.asgi:application -k uvicorn.workers.UvicornWorker"
+    port: 10000
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -20,3 +21,5 @@ services:
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
+      - key: PORT
+        value: 10000
