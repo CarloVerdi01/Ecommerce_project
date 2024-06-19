@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schermata Prodotto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/blog.css" type="text/css" />
+
+
+
+
+    <style>
+    .offcanvas-header {
+      width: 100%;
+      height: 80px;
+      background-color:white;
+    }
+
+    .offcanvas-body {
+      display: none;
+    }
+
+    .offcanvas-body.active {
+      display: block;
+    }
+
+    .custom-buttone {
+      color: black;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    btn.custom-buttone:hover {
+      color: black;
+    }
+
+    .card-img-top {
+    object-fit: cover;
+    width: 60%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    </style>
+
+
+</head>
+<body>
+
+ <div class="offcanvas offcanvas-start " id="demo" >
+  <div class="offcanvas-header ">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 ">
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center border-0">
+          <button type="button" class="btn text-reset fw-semibold text-center text-black ms-0 border-0" data-bs-dismiss="offcanvas">Ecommerce4You </button>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 pt-2">
+            <button type="button" class="btn-close text-reset fw-semibold text-center text-black pt-2 border-0" data-bs-dismiss="offcanvas"> </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas-body active border-top border-black text-start ">
+
+      <div class="offcanvas-body active" id="initial-screen">
+
+      <button type="button" id="next-screen-button-uomo" class="btn btn-sm fw-bold mt-3 custom-buttone "><h6 class="fw-semibold">Uomo</h6></button> <br>
+      <button type="button" id="next-screen-button-donna" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Donna</h6> </button>   </p><br>
+        {% if user.is_authenticated %}
+          <a type ="button" href="{% url 'logout' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Logout</a>
+          {% else %}
+      <a type ="button" href="{% url 'login' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Accedi o registrati</a>
+         {% endif %}
+      </div>
+
+      <div class="offcanvas-body" id="next-screen-uomo">
+           <h6 class="fw-semibold text-center">UOMO - MAN</h6>
+            <br>
+          <button type="button"  id="next-screen-button-abbigliamento-uomo" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Abbigliamento</h6></button><br>
+          <a type="button"  href="{% url 'lista_scarpe_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Scarpe</h6></a><br>
+          <a type="button"  href="{% url 'lista_accessori_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Accessori</h6></a><br>
+          <a type="button"  href="{% url 'lista_profumi_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Profumi</h6></a><br>
+          <button type="button"  id="back-screen-button-uomo" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg> </h6></button><br>
+          {% if user.is_authenticated %}
+          <a type ="button" href="{% url 'logout' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Logout</a>
+          {% else %}
+      <a type ="button" href="{% url 'login' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Accedi o registrati</a>
+         {% endif %}
+      </div>
+
+      <div class="offcanvas-body" id="next-screen-abbigliamento-uomo">
+          <h6 class="fw-semibold text-center">UOMO - MAN</h6>
+            <br>
+            <h6 class="fw-semibold text-center">Abbigliamento</h6>
+            <br>
+          <a type="button"  href="{% url 'lista_abbigliamento_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Tutto</h6></a><br>
+          <a type="button"  href="{% url 'lista_maglie_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Maglie</h6></a><br>
+          <a type="button"  href="{% url 'lista_camicie_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Camicie</h6></a><br>
+          <a type="button"  href="{% url 'lista_felpe_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Felpe e Maglioni</h6></a><br>
+          <a type="button"  href="{% url 'lista_pantaloni_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Pantaloni</h6></a><br>
+          <a type="button"  href="{% url 'lista_giubbotti_uomo' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Giubbotti</h6></a><br>
+          <a type="button"  id="back-screen-button-abbigliamento-uomo" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg></h6></a><br>
+          {% if user.is_authenticated %}
+          <a type ="button" href="{% url 'logout' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Logout</a>
+          {% else %}
+      <a type ="button" href="{% url 'login' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Accedi o registrati</a>
+         {% endif %}
+      </div>
+
+
+
+      <div class="offcanvas-body" id="next-screen-donna">
+          <h6 class="fw-semibold text-center">DONNA - WOMAN</h6>
+            <br>
+          <button type="button"  id="next-screen-button-abbigliamento-donna" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Abbigliamento</h6></button> <br>
+          <a type="button"  href="{% url 'lista_scarpe_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Scarpe</h6></a><br>
+          <a type="button"  href="{% url 'lista_accessori_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Accessori</h6></a><br>
+          <a type="button"  href="{% url 'lista_profumi_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Profumi</h6></a><br>
+          <button type="button"  id="back-screen-button-donna" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg></h6></button><br>
+          {% if user.is_authenticated %}
+          <a type ="button" href="{% url 'logout' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Logout</a>
+          {% else %}
+      <a type ="button" href="{% url 'login' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Accedi o registrati</a>
+         {% endif %}
+      </div>
+
+      <div class="offcanvas-body" id="next-screen-abbigliamento-donna">
+          <h6 class="fw-semibold text-center">DONNA - WOMAN</h6>
+            <br>
+            <h6 class="fw-semibold text-center">Abbigliamento</h6>
+            <br>
+          <a type="button"  href="{% url 'lista_abbigliamento_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Tutto</h6></a><br>
+          <a type="button"  href="{% url 'lista_maglie_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Maglie</h6></a><br>
+          <a type="button"  href="{% url 'lista_camicie_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Camicie</h6></a><br>
+          <a type="button"  href="{% url 'lista_felpe_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Felpe e Maglioni</h6></a><br>
+          <a type="button"  href="{% url 'lista_pantaloni_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Pantaloni</h6></a><br>
+          <a type="button"  href="{% url 'lista_giubbotti_donna' %}" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold">Giubbotti</h6></a><br>
+          <button type="button"  id="back-screen-button-abbigliamento-donna" class="btn btn-sm fw-bold mt-3 custom-buttone"><h6 class="fw-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg></h6></button><br>
+          {% if user.is_authenticated %}
+          <a type ="button" href="{% url 'logout' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Logout</a>
+          {% else %}
+      <a type ="button" href="{% url 'login' %}" class = "text-center mt-5 btn custom-buttone border border-primary border-2">Accedi o registrati</a>
+         {% endif %}
+      </div>
+
+  </div>
+
+
+</div>
+
+    <div class="continer-fluid mt-3 pt-2 pb-2 border-bottom border-black border-2 sticky-top bg-white ">
+        <div class="row">
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 ps-3">
+                <button type="button" class="btn fw-semibold  " data-bs-toggle="offcanvas" data-bs-target="#demo" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list mb-1 fw-bold" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 text-center">
+                <a href="{% url 'home' %}"> <h1 class="text-center semibold text-dark">Ecommerce4You</h1></a>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2  ">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-0 col-sm-0 col-0 d-none d-lg-block">
+                        {% if user.is_authenticated %}
+                            <a type="button" href="{% url 'logout' %}" class="btn fw-bold " >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-dash-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5"/>
+                                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                </svg>
+                            </a>
+                        {% else %}
+                             <a type="button" href="{% url 'login' %}" class="btn fw-bold " >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5"/>
+                            </svg>
+                             </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 pt-1">
+                        <a type="button" href="{% url 'carrello' %}" class="btn fw-bold   pt-0" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 pt-1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <div class="container text-center pt-3 ">
+     <h4>{{ prodotto.descrizione }}</h4>
+ </div>
+
+ <div class="container mt-5">
+     <div class="row">
+         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 ">
+             <img src="{{ prodotto.immagine.url }}"  class="card-img-top img-fluid w-60 ">
+         </div>
+         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 ">
+             <p class="fw-bold">{{ prodotto.nome }}</p>
+             <p>{{ prodotto.descrizione}}</p>
+             <p class="fw-semibld border-bottom pb-3">€{{ prodotto.prezzo }}</p>
+             <p class="fw-bold">Taglia | Size</p>
+
+
+             <form action="{% url 'aggiungi_al_carrello' %}" method="post">
+            {% csrf_token %}
+                 <input type="hidden" name="prodotto_id" value="{{ prodotto.id }}">
+
+             {% if prodotto.categoria == 'ABBIGLIAMENTO' %}
+                {% if somma_quantità == 0 %}
+                    <p class = "text-danger">Prodotto non disponibile</p>
+                {% else %}
+                <select name = "taglia" >
+                    {% for taglia in taglie %}
+                        {% if taglia.quantità > 0 %}
+                            <option value="{{ taglia.taglia }}">{{ taglia.taglia }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <br>
+                <button type="submit" class ="btn custom-buttone border border-black mt-3">Aggiungi al Carrello</button>
+                {% endif %}
+
+             {% elif prodotto.categoria == "SCARPE" %}
+                {% if somma_quantità == 0 %}
+                    <p class = "text-danger">Prodotto non disponibile</p>
+                {% else %}
+                <select name = "numero" >
+                    {% for taglia in taglie %}
+                        {% if taglia.quantità > 0 %}
+                            numero = <option value="{{ taglia.numero }}">{{ taglia.numero }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <br>
+                <button type="submit" class ="btn custom-buttone border border-black mt-3">Aggiungi al Carrello</button>
+                {% endif %}
+
+             {% elif prodotto.categoria == "ACCESSORIO" or prodotto.categoria == "PROFUMO" %}
+                    {% if somma_quantità == 0 %}
+                        <p class="text-danger">Prodotto non disponibile</p>
+                    {% else %}
+                        <p class="fw-semibold"> Taglia Unica </p>
+                         <button type="submit" class ="btn custom-buttone border border-black mt-3">Aggiungi al Carrello</button>
+                    {% endif %}
+             {% endif %}
+
+             <input type="hidden" name="prezzo" value="{{ prodotto.prezzo }}">
+            <input type="hidden" name="quantita" value="1">
+
+
+                 </form>
+
+
+         </div>
+     </div>
+ </div>
+
+
+
+
+
+ <div class="container-fluid bg-dark mt-5 pt-4 pb-5 text-white">
+        <div class="row">
+            <div class="col-xl-4  col-lg-4 col-md-12 col-sm-12 col-12 ps-5 pt-3 ">
+                <h1>Ecommerce4You</h1>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-2">
+                <h5 class="ps-2">MENU</h5>
+                <a type="button"  href="{% url 'chi_siamo' %}" class="btn btn-sm fw-bold custom-buttone "><h6>Chi siamo</h6></a> <br>
+                <a type="button"  href="{% url 'termini_legali_e_privacy' %}" class="btn btn-sm fw-bold custom-buttone "><h6>Termini legali e privacy</h6></a> <br>
+                <a type="button"  href="{% url 'contatti' %}" class="btn btn-sm fw-bold custom-buttone "><h6>Contatti</h6></a> <br>
+                <a type="button"  href="{% url 'cookie' %}" class="btn btn-sm fw-bold custom-buttone "><h6>Cookie</h6></a> <br>
+
+
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ps-3 pt-2">
+                <h5>NEWSLETTERS</h5>
+                <div>Iscriviti per aggiornamenti e promozioni, per te un codice del 10% di sconto sul primo ordine</div>
+                <button type="button"  class="btn  fw-bold custom-buttone pt-2 mt-3 ps-3 pe-3 border "><h6>Iscriviti</h6></button> <br>
+
+            </div>
+        </div>
+    </div>
+
+ <script>
+        document.getElementById('next-screen-button-uomo').addEventListener('click', function() {
+            document.getElementById('initial-screen').classList.remove('active');
+            document.getElementById('next-screen-uomo').classList.add('active');
+        });
+
+        document.getElementById('back-screen-button-uomo').addEventListener('click', function() {
+            document.getElementById('next-screen-uomo').classList.remove('active');
+            document.getElementById('initial-screen').classList.add('active');
+        });
+
+        document.getElementById('next-screen-button-donna').addEventListener('click', function() {
+            document.getElementById('initial-screen').classList.remove('active');
+            document.getElementById('next-screen-donna').classList.add('active');
+        });
+
+        document.getElementById('back-screen-button-donna').addEventListener('click', function() {
+            document.getElementById('next-screen-donna').classList.remove('active');
+            document.getElementById('initial-screen').classList.add('active');
+        });
+
+        document.getElementById('next-screen-button-abbigliamento-uomo').addEventListener('click', function() {
+            document.getElementById('next-screen-uomo').classList.remove('active');
+            document.getElementById('next-screen-abbigliamento-uomo').classList.add('active');
+        });
+
+        document.getElementById('back-screen-button-abbigliamento-uomo').addEventListener('click', function() {
+            document.getElementById('next-screen-abbigliamento-uomo').classList.remove('active');
+            document.getElementById('next-screen-uomo').classList.add('active');
+        });
+
+        document.getElementById('next-screen-button-abbigliamento-donna').addEventListener('click', function() {
+            document.getElementById('next-screen-donna').classList.remove('active');
+            document.getElementById('next-screen-abbigliamento-donna').classList.add('active');
+        });
+
+        document.getElementById('back-screen-button-abbigliamento-donna').addEventListener('click', function() {
+            document.getElementById('next-screen-abbigliamento-donna').classList.remove('active');
+            document.getElementById('next-screen-donna').classList.add('active');
+        });
+</script>
+
+
+
+
+
+</body>
+</html>
