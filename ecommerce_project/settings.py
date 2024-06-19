@@ -81,7 +81,7 @@ WSGI_APPLICATION = "ecommerce_project.wsgi.application"
 DATABASES = {
    "default": dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default=BASE_DIR,
+        default="postgres://mysite:hP4V0OYfpsaB4BRA25u30snuES4Isa3k@dpg-cppjg62j1k6c73ek05j0-a/mysite_1jrp",
         conn_max_age=600
    )
 }
