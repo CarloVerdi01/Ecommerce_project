@@ -1,20 +1,20 @@
 databases:
-  - name: Ecommerce_projectdb
+  - name: mysitedb
     plan: free
-    databaseName: Ecommerce_project
-    user: cv
+    databaseName: mysite
+    user: mysite
 
 services:
   - type: web
     plan: free
-    name: Ecommerce_project
+    name: mysite
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn Ecommerce_project.asgi:application -k uvicorn.workers.UvicornWorker"
+    startCommand: "python -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: Ecommerce_projectdb
+          name: mysitedb
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
